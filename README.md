@@ -43,12 +43,17 @@ sqlid.user2="SELECT * from `config` limit 10"
 
 ```
 
-### Installation
+### Installation or Development
 
 1. install golang
 2. clone this project
-3. update config in 'conf/App.conf'
-4. run go run godb
+3. go get github.com/astaxie/beego 
+4. update config in 'conf/App.conf'
+5. run bee run -downdoc=true -gendoc=true 
+    or bee run
+    or go run godb.go
+6. test API http://localhost:8080/swagger/
+
 
 ### API Reference
 - https://beego.me
