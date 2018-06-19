@@ -69,9 +69,16 @@ Result
 2. clone this project
 3. go get github.com/astaxie/beego 
 4. update config in 'conf/App.conf'
-5. run bee run -downdoc=true -gendoc=true 
-    or bee run
-    or go run godb.go
+5. run 
+```
+bee run -downdoc=true -gendoc=true 
+```
+  OR 
+
+```
+go run godb.go
+```
+
 6. test API http://localhost:8080/swagger/
 7. dashboard & monitoring http://localhost:8088
 
