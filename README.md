@@ -42,7 +42,7 @@ GoDB provides convenient API to query from DB with custom SQL defined based on p
 ```
 curl -X GET "http://localhost:8080/v1/query/select?ds=localhost2&sqlid=user2&id=1" -H "accept: application/json"
 ```
-#### Configuration App.conf
+#### Configuration App.conf - flexible parameter eg.[id]
 ```
 ds.localhost2= "apps:aplikasi@tcp(localhost:3306)/mfs|mysql|10|10|120000"
 sqlid.user2="SELECT * from `user` where id=[id]"
@@ -95,7 +95,7 @@ Complete requests:      5000
 Failed requests:        0
 Total transferred:      5030000 bytes
 HTML transferred:       4275000 bytes
-#######Requests per second:    3608.79 [#/sec] (mean)
+<b>Requests per second:    3608.79 [#/sec] (mean)</b>
 Time per request:       2.771 [ms] (mean)
 Time per request:       0.277 [ms] (mean, across all concurrent requests)
 Transfer rate:          3545.35 [Kbytes/sec] received
@@ -111,7 +111,7 @@ Complete requests:      5000
 Failed requests:        0
 Total transferred:      3295000 bytes
 HTML transferred:       2660000 bytes
-#######Requests per second:    968.93 [#/sec] (mean)
+<b>Requests per second:    968.93 [#/sec] (mean)</b>
 Time per request:       10.321 [ms] (mean)
 Time per request:       1.032 [ms] (mean, across all concurrent requests)
 Transfer rate:          623.56 [Kbytes/sec] received
