@@ -76,7 +76,7 @@ bee run -downdoc=true -gendoc=true
   OR 
 
 ```
-go run godb.go
+go run main.go
 ```
 
 6. test API http://localhost:8080/swagger/
