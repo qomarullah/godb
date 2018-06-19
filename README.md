@@ -36,7 +36,7 @@ GoDB provides convenient API to query from DB with custom SQL defined based on p
     ....
   ],
   "desc": "-",
-  "status": false
+  "success": true
 }
 ```
 ```
@@ -85,7 +85,7 @@ Result
 Swagger
 http://localhost:8080/swagger/
 
-Load Test with ab 3x times faster to java based
+Load Test with ab 3x times faster then java based
 
 ab -c10 -n5000 "http://localhost:8080/v1/query/select?ds=localhost&sqlid=user"
 ```
@@ -101,7 +101,7 @@ Time per request:       0.277 [ms] (mean, across all concurrent requests)
 Transfer rate:          3545.35 [Kbytes/sec] received
 ```
 
-compare to java apidb 
+compare to java apidb : https://github.com/qomarullah/apidb
 
 ab -c10 -n5000 "http://localhost:9002/getlist?jndi=localhost&sqlid=user"
 ```
