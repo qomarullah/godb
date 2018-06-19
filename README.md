@@ -1,6 +1,6 @@
 ## Synopsis
 
-GoDB provides convinent API to query from any DB and with custom SQL , built using golang (beego)
+GoDB provides convenient API to query from any DB and with custom SQL and parameter, built with golang (beego)
 
 ## Code Example
   ```
