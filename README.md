@@ -1,4 +1,4 @@
-# Synopsis
+### Synopsis
 
 GoDB provides convenient API to query from any DB and with custom SQL and parameter, built with golang (beego)
 
