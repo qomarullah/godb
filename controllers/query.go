@@ -1,7 +1,9 @@
 package controllers
 
 import (
+	"fmt"
 	"godb/models"
+	"reflect"
 	"strings"
 
 	"github.com/astaxie/beego"
@@ -26,13 +28,31 @@ type Resp struct {
 func (q *QueryController) Select() {
 	_ds := q.GetString("ds")
 	_sqlid := q.GetString("sqlid")
-	_id := q.GetString("id")
+	//keys := q.Ctx.Input.GetData("ds")
+
+	controllerName, actionName := q.GetControllerAndAction()
+	controllerName = strings.ToLower(controllerName[0 : len(controllerName)-10])
+	actionName = strings.ToLower(actionName)
+	fmt.Println(controllerName, actionName)
 
 	//ds := "apps:aplikasi@tcp(localhost:3306)/test"
 	ds := beego.AppConfig.String("ds." + _ds)
 	sqlid := beego.AppConfig.String("sqlid." + _sqlid)
-	query := strings.Replace(sqlid, "[id]", _id, -1)
+	query := sqlid
+	mymap := q.Ctx.Request.URL.Query()
 
+	keys := reflect.ValueOf(mymap).MapKeys()
+	strkeys := make([]string, len(keys))
+	fmt.Println("len:", len(keys))
+
+	for i := 0; i < len(keys); i++ {
+		strkeys[i] = keys[i].String()
+		query = strings.Replace(query, "["+strkeys[i]+"]", mymap[strkeys[i]][0], 5)
+		//fmt.Println(strkeys[i], "==>", mymap[strkeys[i]][0])
+		//fmt.Println("query1:", query)
+
+	}
+	fmt.Println("query:", query)
 	var resp map[string]interface{}
 	if resp == nil {
 		resp = make(map[string]interface{})
@@ -70,6 +90,7 @@ func (q *QueryController) Select() {
 		return
 
 	}
+	resp["count"] = len(data)
 	resp["data"] = data
 	resp["success"] = true
 	q.Data["json"] = resp
