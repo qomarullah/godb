@@ -48,6 +48,7 @@ ds.localhost2= "apps:aplikasi@tcp(localhost:3306)/mfs|mysql|10|10|120000"
 sqlid.user2="SELECT * from `user` where id=[id]"
 ```
 ```
+Result
 {
   "count": 1,
   "data": [
