@@ -32,7 +32,7 @@ paths:
         "200":
           description: '{string} success'
         "403":
-          description: user not exist
+          description: data not found
 definitions:
   models.Object:
     title: Object

@@ -21,7 +21,7 @@ type Resp struct {
 // @Param	ds		query 	string	true		"Datasource from config"
 // @Param	sqlid		query 	string	true		"SQL id predefine from config"
 // @Success 200 {string} success
-// @Failure 403 user not exist
+// @Failure 403 data not found
 // @router /select [get]
 func (q *QueryController) Select() {
 	_ds := q.GetString("ds")
@@ -34,13 +34,12 @@ func (q *QueryController) Select() {
 	query := strings.Replace(sqlid, "[id]", _id, -1)
 
 	var resp map[string]interface{}
-
 	if resp == nil {
 		resp = make(map[string]interface{})
 	}
 	resp["count"] = 0
 	resp["desc"] = "-"
-	resp["status"] = false
+	resp["success"] = false
 	var xdata []map[string]string
 	resp["data"] = xdata
 

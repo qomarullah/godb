@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	_ "godb/routers"
 
 	"github.com/astaxie/beego"
@@ -20,12 +19,11 @@ func main() {
 	if logFilesEs != "" {
 		//logs.SetLogger(logs.AdapterEs, `{"dsn":"`+logFilesEs+`","level":`+logFilesEsLevel+`}`)
 		logs.SetLogger(logs.AdapterEs, `{"dsn":"`+logFilesEs+`","level": 1 }`)
-		fmt.Println("==>" + logFilesEs)
+		//fmt.Println("==>" + logFilesEs)
 
 	}
 
 	beego.Debug("App started.")
-
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"

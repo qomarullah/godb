@@ -43,7 +43,7 @@
                         "description": "{string} success"
                     },
                     "403": {
-                        "description": "user not exist"
+                        "description": "data not found"
                     }
                 }
             }
