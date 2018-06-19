@@ -1,8 +1,8 @@
-### Synopsis
+#### Synopsis
 
 GoDB provides convenient API to query from any DB and with custom SQL and parameter, built with golang (beego)
 
-### Code Example
+#### Code Example
   ```
   curl -X GET "http://localhost:8080/v1/query/select?ds=localhost&sqlid=user" -H "accept: application/json"
   ```
@@ -43,7 +43,7 @@ sqlid.user2="SELECT * from `config` limit 10"
 
 ```
 
-### Installation or Development
+#### Installation or Development
 
 1. install golang
 2. clone this project
@@ -53,21 +53,21 @@ sqlid.user2="SELECT * from `config` limit 10"
     or bee run
     or go run godb.go
 6. test API http://localhost:8080/swagger/
+7. dashboard & monitoring http://localhost:8088
 
-
-### API Reference
+#### API Reference
 - https://beego.me
 - https://github.com/elgs/gosqljson
 
 
-### Tests
+#### Tests
 
 Describe and show how to run the tests with code examples.
 
-### Contributors
+#### Contributors
 
 Let people know how they can dive into the project, include important links to things like issue trackers, irc, twitter accounts if applicable.
 
-# License
+#### License
 
 A short snippet describing the license (MIT, Apache, etc.)
