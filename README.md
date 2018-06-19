@@ -2,14 +2,21 @@
 
 GoDB provides convenient API to query from any DB and with custom SQL and parameter, built with golang (beego)
 
-#### Code Example
+#### API Example
   ```
   curl -X GET "http://localhost:8080/v1/query/select?ds=localhost&sqlid=user" -H "accept: application/json"
   ```
+  ##### Configuration App.conf
+  ```
+  #ds
+  ds.localhost= "apps:aplikasi@tcp(localhost:3306)/test|mysql|10|10|120000"
+  sqlid.user="SELECT * from `user` limit 10"
+  ```
+  
   ```
   result:
  {
-  "count": 0,
+  "count": 10,
   "data": [
     {
       "email": "slene",
@@ -26,21 +33,33 @@ GoDB provides convenient API to query from any DB and with custom SQL and parame
       "id": "3",
       "name": "First"
     }
+    ....
   ],
   "desc": "-",
   "status": false
 }
-
- ```
-#### Configuration
 ```
-#ds
-ds.localhost= "apps:aplikasi@tcp(localhost:3306)/test|mysql|10|10|120000"
-sqlid.user="SELECT * from `user` limit 10"
-
+```
+curl -X GET "http://localhost:8080/v1/query/select?ds=localhost2&sqlid=user2&id=1" -H "accept: application/json"
+```
+#### Configuration App.conf
+```
 ds.localhost2= "apps:aplikasi@tcp(localhost:3306)/mfs|mysql|10|10|120000"
-sqlid.user2="SELECT * from `config` limit 10"
-
+sqlid.user2="SELECT * from `user` where id=[id]"
+```
+```
+{
+  "count": 1,
+  "data": [
+    {
+      "email": "slene",
+      "id": "1",
+      "name": "testing"
+    }
+  ],
+  "desc": "-",
+  "success": true
+}
 ```
 
 #### Installation or Development
